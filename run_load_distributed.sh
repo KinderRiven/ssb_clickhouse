@@ -5,20 +5,20 @@ ip=10.10.1.8
 port=9000
 
 echo 'drop table customer/part/supplier/lineorder'
-clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_customer ON cluster cluster_3shards"
-clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_lineorder ON cluster cluster_3shards"
-clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_part ON cluster cluster_3shards"
-clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_supplier ON cluster cluster_3shards"
-
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS customer ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS part ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS supplier ON cluster cluster_3shards"
 
+clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_customer ON cluster cluster_3shards"
+clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_lineorder ON cluster cluster_3shards"
+clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_part ON cluster cluster_3shards"
+clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS t_supplier ON cluster cluster_3shards"
+
 echo 'create table customer/part/supplier/lineorder'
 cat $CREATE_DIR/create_customer_into_single.sql | clickhouse-client -h $ip --port $port
-cat $CREATE_DIR/create_lineorder_into_single.sql | clickhouse-client -h $ip --port $port
-cat $CREATE_DIR/create_part_into_single.sql | clickhouse-client -h $ip --port $port
+cat $CREATE_DIR/create_lineorder_into_single.sql| clickhouse-client -h $ip --port $port
+cat $CREATE_DIR/create_part_into_single.sql     | clickhouse-client -h $ip --port $port
 cat $CREATE_DIR/create_supplier_into_single.sql | clickhouse-client -h $ip --port $port
 
 clickhouse-client -h $ip --port $port --query "CREATE TABLE customer AS t_customer ENGINE = Distributed(cluster_3shards, default, t_customer, rand());"
