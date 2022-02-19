@@ -1,6 +1,8 @@
-sf=10
+sf=100
 LOAD_DIR=/mnt/data/ssb-$sf
-CREATE_DIR=load/distributed_in_local
+# CREATE_DIR=load/distributed_in_local
+# CREATE_DIR=load/distributed_in_local
+CREATE_DIR=load/distributed_in_seaweed
 ip=10.10.1.8
 port=9000
 
