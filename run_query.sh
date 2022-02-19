@@ -1,5 +1,6 @@
 #!/bin/bash
 QUERY_DIR=query
+RESULT_DIR=result
 ip=10.10.1.8
 port=9000
 
