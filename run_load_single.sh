@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sf=10
 LOAD_DIR=/mnt/data/ssb-$sf
 CREATE_DIR=load/single
