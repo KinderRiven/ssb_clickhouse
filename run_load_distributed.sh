@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sf=100
 LOAD_DIR=/mnt/data/ssb-$sf
 # CREATE_DIR=load/distributed_in_local
