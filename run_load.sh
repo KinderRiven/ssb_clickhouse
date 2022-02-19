@@ -1,4 +1,4 @@
-sf=100
+sf=10
 DIR=/mnt/data/ssb-$sf
 ip=10.10.1.8
 port=9000
