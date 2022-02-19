@@ -8,6 +8,6 @@ CREATE TABLE customer
  C_REGION        	String,                                                                                                                   
  C_PHONE         	String,                                                                                                                   
  C_MKTSEGMENT    	String                                                                                                                    
-)                                                                                                                                         
+)                                                                                                                                     
 ENGINE = MergeTree ORDER BY (C_CUSTKEY)
 SETTINGS storage_policy = 'only_local'

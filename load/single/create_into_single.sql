@@ -30,7 +30,7 @@ CREATE TABLE lineorder
  LO_SUPPLYCOST          UInt32,
  LO_TAX                 UInt8,
  LO_COMMITDATE          Date,
- LO_SHIPMODE            sString
+ LO_SHIPMODE            String
 )
 ENGINE = MergeTree PARTITION BY toYear(LO_ORDERDATE) ORDER BY (LO_ORDERDATE, LO_ORDERKEY)
 SETTINGS storage_policy = 'only_local';
