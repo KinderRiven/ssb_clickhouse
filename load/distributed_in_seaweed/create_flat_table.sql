@@ -42,7 +42,7 @@ SELECT
     p.P_TYPE AS P_TYPE,
     p.P_SIZE AS P_SIZE,
     p.P_CONTAINER AS P_CONTAINER
-FROM distributed_lineorder AS l
-GLOBAL JOIN distributed_customer AS c ON c.C_CUSTKEY = l.LO_CUSTKEY
-GLOBAL JOIN distributed_supplier AS s ON s.S_SUPPKEY = l.LO_SUPPKEY
-GLOBAL JOIN distributed_part AS p ON p.P_PARTKEY = l.LO_PARTKEY
+FROM lineorder AS l
+GLOBAL JOIN customer AS c ON c.C_CUSTKEY = l.LO_CUSTKEY
+GLOBAL JOIN supplier AS s ON s.S_SUPPKEY = l.LO_SUPPKEY
+GLOBAL JOIN part AS p ON p.P_PARTKEY = l.LO_PARTKEY
