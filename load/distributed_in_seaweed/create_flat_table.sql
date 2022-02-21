@@ -45,4 +45,4 @@ SELECT
 FROM distributed_lineorder AS l
 GLOBAL JOIN distributed_customer AS c ON c.C_CUSTKEY = l.LO_CUSTKEY
 GLOBAL JOIN distributed_supplier AS s ON s.S_SUPPKEY = l.LO_SUPPKEY
-GLOBAL JOIN distributed_part AS p ON p.P_PARTKEY = l.LO_PARTKEY;
+GLOBAL JOIN distributed_part AS p ON p.P_PARTKEY = l.LO_PARTKEY
