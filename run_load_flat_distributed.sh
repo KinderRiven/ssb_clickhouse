@@ -4,12 +4,13 @@ sf=100
 LOAD_DIR=/mnt/data/ssb-$sf
 # CREATE_DIR=load/distributed_in_local
 # CREATE_DIR=load/distributed_in_s3
-# CREATE_DIR=load/distributed_in_seaweed
-CREATE_DIR=load/distributed_in_seaweed_s3
+CREATE_DIR=load/distributed_in_seaweed
+# CREATE_DIR=load/distributed_in_seaweed_s3
 ip=10.10.1.8
 port=9000
 
-echo 'drop table customer/part/supplier/lineorder'
+echo 'drop table lineorder_t/customer/part/supplier/lineorder'
+clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder_t ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS customer ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS part ON cluster cluster_3shards"
