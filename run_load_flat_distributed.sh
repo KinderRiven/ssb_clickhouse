@@ -10,7 +10,7 @@ ip=10.10.1.8
 port=9000
 
 echo 'drop table lineorder_t/customer/part/supplier/lineorder'
-clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder_t ON cluster cluster_3shards"
+clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder_flat ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS customer ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS part ON cluster cluster_3shards"
