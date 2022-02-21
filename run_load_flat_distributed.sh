@@ -11,6 +11,7 @@ port=9000
 
 echo 'drop table lineorder_t/customer/part/supplier/lineorder'
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder_flat ON cluster cluster_3shards"
+
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS customer ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS lineorder ON cluster cluster_3shards"
 clickhouse-client -h $ip --port $port --query="DROP TABLE IF EXISTS part ON cluster cluster_3shards"
@@ -49,6 +50,7 @@ clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM part" >> log
 clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM supplier" >> log.txt
 clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM lineorder" >> log.txt
 
+echo 'create falt table'
 cat $CREATE_DIR/create_flat_table.sql | clickhouse-client -h $ip --port $port
 
 clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM lineorder_flat" >> log.txt
