@@ -51,6 +51,6 @@ clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM supplier" >>
 clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM lineorder" >> log.txt
 
 echo 'create falt table'
-cat $CREATE_DIR/create_flat_table.sql | clickhouse-client -h $ip --port $port
+date && time cat $CREATE_DIR/create_flat_table.sql | clickhouse-client -h $ip --port $port
 
 clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM lineorder_flat" >> log.txt
