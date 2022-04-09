@@ -1,6 +1,6 @@
 sf=10
 LOAD_DIR=/mnt/data/ssb-$sf
-CREATE_DIR=load/single_in_local
+CREATE_DIR=load/single_in_s3
 ip=10.10.1.8
 port=9000
 
