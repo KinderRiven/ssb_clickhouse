@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS customer
-DROP TABLE IF EXISTS lineorder
-DROP TABLE IF EXISTS part
-DROP TABLE IF EXISTS supplier
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS lineorder;
+DROP TABLE IF EXISTS part;
+DROP TABLE IF EXISTS supplier;
 
 CREATE TABLE customer                                                                                         
 (                                                                                                                                         
@@ -15,7 +15,7 @@ CREATE TABLE customer
  C_MKTSEGMENT    	String                                                                                                                    
 )                                                                                                                                     
 ENGINE = MergeTree ORDER BY (C_CUSTKEY)
-SETTINGS storage_policy = 'only_alluxio'
+SETTINGS storage_policy = 'only_alluxio';
 
 CREATE TABLE lineorder
 (
@@ -38,7 +38,7 @@ CREATE TABLE lineorder
  LO_SHIPMODE            String
 )
 ENGINE = MergeTree PARTITION BY toYear(LO_ORDERDATE) ORDER BY (LO_ORDERDATE, LO_ORDERKEY)
-SETTINGS storage_policy = 'only_alluxio'
+SETTINGS storage_policy = 'only_alluxio';
 
 CREATE TABLE lineorder
 (
@@ -61,7 +61,7 @@ CREATE TABLE lineorder
  LO_SHIPMODE            String
 )
 ENGINE = MergeTree PARTITION BY toYear(LO_ORDERDATE) ORDER BY (LO_ORDERDATE, LO_ORDERKEY)
-SETTINGS storage_policy = 'only_alluxio'
+SETTINGS storage_policy = 'only_alluxio';
 
 CREATE TABLE supplier 
 (
@@ -74,4 +74,4 @@ CREATE TABLE supplier
  S_PHONE         String
  )
 ENGINE = MergeTree ORDER BY S_SUPPKEY
-SETTINGS storage_policy = 'only_alluxio'
+SETTINGS storage_policy = 'only_alluxio';

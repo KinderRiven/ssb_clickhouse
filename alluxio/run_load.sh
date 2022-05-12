@@ -1,10 +1,9 @@
 sf=100
 LOAD_DIR=/mnt/data/ssb-$sf
-CREATE_DIR=load/single_in_s3
 ip=10.10.1.8
 port=9000
 
-clickhouse-client -h $ip --port $port --query-file=create.sql
+clickhouse-client -h $ip --port $port --queries-file=create.sql
 
 echo 'load customer'
 date && time clickhouse-client -h $ip --port $port --query "INSERT INTO customer FORMAT CSV" < $LOAD_DIR/customer.tbl
