@@ -3,6 +3,7 @@ LOAD_DIR=/mnt/data/ssb-$sf
 ip=10.10.1.8
 port=9000
 
+echo 'create table'
 clickhouse-client -h $ip --port $port --queries-file=create.sql
 
 echo 'load customer'
