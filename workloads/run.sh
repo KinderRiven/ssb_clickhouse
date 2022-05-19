@@ -1,0 +1,1 @@
+time & ./clickhouse-client --queries-config=workload_all.sql

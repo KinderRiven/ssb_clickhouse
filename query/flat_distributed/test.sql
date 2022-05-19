@@ -1,20 +1,16 @@
---! Q1.1
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue
 FROM lineorder_flat
 WHERE toYear(LO_ORDERDATE) = 1993 AND LO_DISCOUNT BETWEEN 1 AND 3 AND LO_QUANTITY < 25;
 
---! Q1.2
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue
 FROM lineorder_flat
 WHERE toYYYYMM(LO_ORDERDATE) = 199401 AND LO_DISCOUNT BETWEEN 4 AND 6 AND LO_QUANTITY BETWEEN 26 AND 35;
 
---! Q1.3
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue
 FROM lineorder_flat
 WHERE toISOWeek(LO_ORDERDATE) = 6 AND toYear(LO_ORDERDATE) = 1994
   AND LO_DISCOUNT BETWEEN 5 AND 7 AND LO_QUANTITY BETWEEN 26 AND 35;
 
---! Q2.1
 SELECT
     sum(LO_REVENUE),
     toYear(LO_ORDERDATE) AS year,
@@ -28,7 +24,6 @@ ORDER BY
     year,
     P_BRAND;
 
---! Q2.2
 SELECT
     sum(LO_REVENUE),
     toYear(LO_ORDERDATE) AS year,
@@ -42,7 +37,6 @@ ORDER BY
     year,
     P_BRAND;
 
---! Q2.3
 SELECT
     sum(LO_REVENUE),
     toYear(LO_ORDERDATE) AS year,
@@ -56,7 +50,6 @@ ORDER BY
     year,
     P_BRAND;
 
---! Q3.1
 SELECT
     C_NATION,
     S_NATION,
@@ -72,7 +65,6 @@ ORDER BY
     year ASC,
     revenue DESC;
 
---! Q3.2
 SELECT
     C_CITY,
     S_CITY,
@@ -88,7 +80,6 @@ ORDER BY
     year ASC,
     revenue DESC;
 
---! Q3.3
 SELECT
     C_CITY,
     S_CITY,
@@ -104,7 +95,6 @@ ORDER BY
     year ASC,
     revenue DESC;
 
---! Q3.4
 SELECT
     C_CITY,
     S_CITY,
@@ -120,7 +110,6 @@ ORDER BY
     year ASC,
     revenue DESC;
 
---! Q4.1
 SELECT
     toYear(LO_ORDERDATE) AS year,
     C_NATION,
@@ -134,7 +123,6 @@ ORDER BY
     year ASC,
     C_NATION ASC;
 
---! Q4.2
 SELECT
     toYear(LO_ORDERDATE) AS year,
     S_NATION,
@@ -151,7 +139,6 @@ ORDER BY
     S_NATION ASC,
     P_CATEGORY ASC;
 
---! Q4.3
 SELECT
     toYear(LO_ORDERDATE) AS year,
     S_CITY,
