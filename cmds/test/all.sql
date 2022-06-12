@@ -1,5 +1,3 @@
-set max_query_cache_size=4294967296;
-
 --! Q1.1
 SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue
 FROM lineorder_flat

@@ -82,7 +82,7 @@ ENGINE = MergeTree ORDER BY S_SUPPKEY
 SETTINGS storage_policy = 'only_s3';
 
 -- create disrtibured table
-CREATE TABLE customer AS l_customer ENGINE = Distributed(cluster_3shards, default, l_customer, rand());
-CREATE TABLE part AS l_part ENGINE = Distributed(cluster_3shards, default, l_part, rand());
-CREATE TABLE lineorder AS l_lineorder ENGINE = Distributed(cluster_3shards, default, l_lineorder, rand());
-CREATE TABLE supplier AS l_supplier ENGINE = Distributed(cluster_3shards, default, l_supplier, rand());
+CREATE TABLE customer ON cluster cluster_3shards AS l_customer ENGINE = Distributed(cluster_3shards, default, l_customer, rand());
+CREATE TABLE part ON cluster cluster_3shards AS l_part ENGINE = Distributed(cluster_3shards, default, l_part, rand());
+CREATE TABLE lineorder ON cluster cluster_3shards AS l_lineorder ENGINE = Distributed(cluster_3shards, default, l_lineorder, rand());
+CREATE TABLE supplier ON cluster cluster_3shards AS l_supplier ENGINE = Distributed(cluster_3shards, default, l_supplier, rand());

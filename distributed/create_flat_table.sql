@@ -1,3 +1,5 @@
+DROP TABLE lineorder_flat ON cluster cluster_3shards;
+
 CREATE TABLE lineorder_flat
 ENGINE = MergeTree
 PARTITION BY toYear(LO_ORDERDATE)
@@ -45,4 +47,4 @@ SELECT
 FROM lineorder AS l
 GLOBAL JOIN customer AS c ON c.C_CUSTKEY = l.LO_CUSTKEY
 GLOBAL JOIN supplier AS s ON s.S_SUPPKEY = l.LO_SUPPKEY
-GLOBAL JOIN part AS p ON p.P_PARTKEY = l.LO_PARTKEY
+GLOBAL JOIN part AS p ON p.P_PARTKEY = l.LO_PARTKEY;
