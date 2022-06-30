@@ -1,4 +1,4 @@
-CREATE TABLE lineorder_flat
+CREATE TABLE alluxio_lineorder_flat
 ENGINE = MergeTree
 PARTITION BY toYear(LO_ORDERDATE)
 ORDER BY (LO_ORDERDATE, LO_ORDERKEY) 

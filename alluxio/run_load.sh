@@ -7,17 +7,17 @@ echo 'create table'
 clickhouse-client -h $ip --port $port --queries-file=create.sql
 
 echo 'load customer'
-date && time clickhouse-client -h $ip --port $port --query "INSERT INTO customer FORMAT CSV" < $LOAD_DIR/customer.tbl
-clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM customer" >> log.txt
+date && time clickhouse-client -h $ip --port $port --query "INSERT INTO alluxio_customer FORMAT CSV" < $LOAD_DIR/customer.tbl
+clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM alluxio_customer" >> log.txt
 
 echo 'load part'
-date && time clickhouse-client -h $ip --port $port --query "INSERT INTO part FORMAT CSV" < $LOAD_DIR/part.tbl
-clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM part" >> log.txt
+date && time clickhouse-client -h $ip --port $port --query "INSERT INTO alluxio_part FORMAT CSV" < $LOAD_DIR/part.tbl
+clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM alluxio_part" >> log.txt
 
 echo 'load supplier'
-date && time clickhouse-client -h $ip --port $port --query "INSERT INTO supplier FORMAT CSV" < $LOAD_DIR/supplier.tbl
-clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM supplier" >> log.txt
+date && time clickhouse-client -h $ip --port $port --query "INSERT INTO alluxio_supplier FORMAT CSV" < $LOAD_DIR/supplier.tbl
+clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM alluxio_supplier" >> log.txt
 
 echo 'load lineorder'
-date && time clickhouse-client -h $ip --port $port --query "INSERT INTO lineorder FORMAT CSV" < $LOAD_DIR/lineorder.tbl
-clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM lineorder" >> log.txt
+date && time clickhouse-client -h $ip --port $port --query "INSERT INTO alluxio_lineorder FORMAT CSV" < $LOAD_DIR/lineorder.tbl
+clickhouse-client -h $ip --port $port --query "SELECT COUNT(*) FROM alluxio_lineorder" >> log.txt

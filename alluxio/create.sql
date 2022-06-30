@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS lineorder;
 DROP TABLE IF EXISTS part;
 DROP TABLE IF EXISTS supplier;
 
-CREATE TABLE customer                                                                                         
+CREATE TABLE alluxio_customer                                                                                         
 (                                                                                                                                         
  C_CUSTKEY      	UInt32,                                                                                                                   
  C_NAME           	String,                                                                                                                   
@@ -17,7 +17,7 @@ CREATE TABLE customer
 ENGINE = MergeTree ORDER BY (C_CUSTKEY)
 SETTINGS storage_policy = 'only_alluxio';
 
-CREATE TABLE lineorder
+CREATE TABLE alluxio_lineorder
 (
  LO_ORDERKEY            UInt32,
  LO_LINENUMBER          UInt8,
@@ -40,7 +40,7 @@ CREATE TABLE lineorder
 ENGINE = MergeTree PARTITION BY toYear(LO_ORDERDATE) ORDER BY (LO_ORDERDATE, LO_ORDERKEY)
 SETTINGS storage_policy = 'only_alluxio';
 
-CREATE TABLE part 
+CREATE TABLE alluxio_part 
 (
  P_PARTKEY       UInt32,
  P_NAME          String,
@@ -55,7 +55,7 @@ CREATE TABLE part
 ENGINE = MergeTree ORDER BY P_PARTKEY
 SETTINGS storage_policy = 'only_alluxio';
 
-CREATE TABLE supplier 
+CREATE TABLE alluxio_supplier 
 (
  S_SUPPKEY       UInt32,
  S_NAME          String,
