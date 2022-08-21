@@ -3,7 +3,7 @@
 sf=10
 LOAD_DIR=/mnt/data/ssb-$sf
 CREATE_DIR=load/single
-ip=10.10.1.8
+ip=127.0.0.1
 port=9000
 
 echo 'drop table customer/part/supplier/lineorder'
