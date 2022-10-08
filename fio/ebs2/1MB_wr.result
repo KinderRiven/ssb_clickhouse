@@ -1,0 +1,31 @@
+test: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=libaio, iodepth=8
+fio-3.16
+Starting 1 thread
+
+test: (groupid=0, jobs=1): err= 0: pid=348256: Mon Sep 26 09:13:58 2022
+  write: IOPS=302, BW=303MiB/s (317MB/s)(17.7GiB/60029msec); 0 zone resets
+    slat (usec): min=23, max=39795, avg=2469.32, stdev=858.25
+    clat (usec): min=1944, max=60464, avg=23958.55, stdev=2453.03
+     lat (usec): min=1971, max=63161, avg=26428.22, stdev=2644.06
+    clat percentiles (usec):
+     |  1.00th=[ 6063],  5.00th=[23200], 10.00th=[23462], 20.00th=[23725],
+     | 30.00th=[23987], 40.00th=[23987], 50.00th=[23987], 60.00th=[24249],
+     | 70.00th=[24249], 80.00th=[24511], 90.00th=[24773], 95.00th=[25297],
+     | 99.00th=[27132], 99.50th=[27919], 99.90th=[39584], 99.95th=[46924],
+     | 99.99th=[57410]
+   bw (  KiB/s): min=304542, max=632832, per=100.00%, avg=309932.42, stdev=29740.18, samples=120
+   iops        : min=  297, max=  618, avg=302.66, stdev=29.04, samples=120
+  lat (msec)   : 2=0.01%, 4=0.76%, 10=0.31%, 20=0.29%, 50=98.59%
+  lat (msec)   : 100=0.03%
+  cpu          : usr=0.72%, sys=1.77%, ctx=35212, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,18169,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=8
+
+Run status group 0 (all jobs):
+  WRITE: bw=303MiB/s (317MB/s), 303MiB/s-303MiB/s (317MB/s-317MB/s), io=17.7GiB (19.1GB), run=60029-60029msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/72536, merge=0/11, ticks=0/1783431, in_queue=1783431, util=99.89%

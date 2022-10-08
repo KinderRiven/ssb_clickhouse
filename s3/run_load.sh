@@ -8,7 +8,7 @@ $CLIENT -h $ip --port $port --queries-file=create.sql
 
 echo 'load customer'
 date && time $CLIENT -h $ip --port $port --query "INSERT INTO customer FORMAT CSV" < $LOAD_DIR/customer.tbl
-$CLIENT-h $ip --port $port --query "SELECT COUNT(*) FROM customer" >> log.txt
+$CLIENT -h $ip --port $port --query "SELECT COUNT(*) FROM customer" >> log.txt
 
 echo 'load part'
 date && time $CLIENT -h $ip --port $port --query "INSERT INTO part FORMAT CSV" < $LOAD_DIR/part.tbl

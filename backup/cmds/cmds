@@ -1,0 +1,6 @@
+ninja unit_tests_dbms
+./src/unit_tests_dbms --gtest_filter='ARCFileCache*' --gtest_brief=0 --gtest_throw_on_failure=1
+gdb -q -ex 'set print inferior-events off' -ex 'set confirm off' -ex 'set print thread-events off' -ex run -ex bt -ex quit --args ./src/unit_tests_dbms --gtest_filter='ARCFileCache*' --gtest_brief=0 --gtest_throw_on_failure=1
+
+
+https://s3.amazonaws.com/clickhouse-test-reports/36376/1cb1c7275cb53769ab826772db9b71361bb3e413/stress_test__thread__actions_/clickhouse-server.clean.log
