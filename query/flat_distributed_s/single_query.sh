@@ -8,7 +8,7 @@ do
 # echo 3 > /proc/sys/vm/drop_caches
 for((j=0; j < 3; j++))
 do
-# echo 3 > /proc/sys/vm/drop_caches
+echo 3 > /proc/sys/vm/drop_caches
 RES=$(/mnt/ebs/ClickHouse_code_reading/ClickHouse/build/programs/clickhouse-client --time --format=Null --queries-file=${QUERIES[$i]} 2>&1)
 echo "${QUERIES[$i]}, $j, ${RES}" >> result.txt
 done
