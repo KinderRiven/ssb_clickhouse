@@ -1,4 +1,4 @@
-CREATE TABLE t_supplier ON cluster cluster_3shards 
+CREATE TABLE ebs_supplier
 (
  S_SUPPKEY       UInt32,
  S_NAME          String,
@@ -9,4 +9,4 @@ CREATE TABLE t_supplier ON cluster cluster_3shards
  S_PHONE         String
  )
 ENGINE = MergeTree ORDER BY S_SUPPKEY
-SETTINGS storage_policy = 'only_local'
+SETTINGS storage_policy = 'only_ebs'

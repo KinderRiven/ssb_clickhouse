@@ -1,0 +1,23 @@
+Mon Oct 10 10:21:29 UTC 2022
+
+real    0m1.873s
+user    0m2.052s
+sys     0m0.248s
+load part
+Mon Oct 10 10:21:31 UTC 2022
+
+real    0m1.006s
+user    0m1.000s
+sys     0m0.143s
+load supplier
+Mon Oct 10 10:21:32 UTC 2022
+
+real    0m0.267s
+user    0m0.160s
+sys     0m0.035s
+load lineorder
+Mon Oct 10 10:21:32 UTC 2022
+
+real    17m38.626s
+user    9m23.846s
+sys     0m35.066s

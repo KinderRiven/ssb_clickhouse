@@ -1,15 +1,18 @@
 #!/bin/bash
 
-sf=10
+sf=100
 LOAD_DIR=/mnt/ebs/ssb-$sf
-CREATE_DIR=single_in_s3_s
+# CREATE_DIR=single_in_s3_s
+CREATE_DIR=single_in_ebs
 ip=127.0.0.1
 port=9000
 
-TABLE_CUSTOMER="s_customer"
-TABLE_PART="s_part"
-TABLE_SUPPLIER="s_supplier"
-TABLE_LINEORDER="s_lineorder"
+TABLE_CUSTOMER="ebs_customer"
+TABLE_PART="ebs_part"
+TABLE_SUPPLIER="ebs_supplier"
+TABLE_LINEORDER="ebs_lineorder"
+TABLE_LINEORDER_FLAT="ebs_lineorder_flat"
+
 CLIENT=/mnt/ebs/ClickHouse/build/programs/clickhouse-client
 
 echo 'drop table customer/part/supplier/lineorder'
@@ -17,6 +20,7 @@ $CLIENT -h $ip --port $port --query="DROP TABLE IF EXISTS ${TABLE_CUSTOMER}"
 $CLIENT -h $ip --port $port --query="DROP TABLE IF EXISTS ${TABLE_PART}"
 $CLIENT -h $ip --port $port --query="DROP TABLE IF EXISTS ${TABLE_SUPPLIER}"
 $CLIENT -h $ip --port $port --query="DROP TABLE IF EXISTS ${TABLE_LINEORDER}"
+$CLIENT -h $ip --port $port --query="DROP TABLE IF EXISTS ${TABLE_LINEORDER_FLAT}"
 
 echo 'create table customer/part/supplier/lineorder'
 cat $CREATE_DIR/create_customer_into_single.sql | $CLIENT -h $ip --port $port

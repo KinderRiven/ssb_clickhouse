@@ -1,8 +1,8 @@
-CREATE TABLE lineorder_flat
+CREATE TABLE ebs_lineorder_flat
 ENGINE = MergeTree
 PARTITION BY toYear(LO_ORDERDATE)
 ORDER BY (LO_ORDERDATE, LO_ORDERKEY) 
-SETTINGS storage_policy = 'only_local' AS
+SETTINGS storage_policy = 'only_ebs' AS
 SELECT
     l.LO_ORDERKEY AS LO_ORDERKEY,
     l.LO_LINENUMBER AS LO_LINENUMBER,
@@ -42,7 +42,7 @@ SELECT
     p.P_TYPE AS P_TYPE,
     p.P_SIZE AS P_SIZE,
     p.P_CONTAINER AS P_CONTAINER
-FROM lineorder AS l
-GLOBAL JOIN customer AS c ON c.C_CUSTKEY = l.LO_CUSTKEY
-GLOBAL JOIN supplier AS s ON s.S_SUPPKEY = l.LO_SUPPKEY
-GLOBAL JOIN part AS p ON p.P_PARTKEY = l.LO_PARTKEY
+FROM ebs_lineorder AS l
+GLOBAL JOIN ebs_customer AS c ON c.C_CUSTKEY = l.LO_CUSTKEY
+GLOBAL JOIN ebs_supplier AS s ON s.S_SUPPKEY = l.LO_SUPPKEY
+GLOBAL JOIN ebs_part AS p ON p.P_PARTKEY = l.LO_PARTKEY

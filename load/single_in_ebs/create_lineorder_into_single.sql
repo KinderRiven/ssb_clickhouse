@@ -1,4 +1,4 @@
-CREATE TABLE lineorder
+CREATE TABLE ebs_lineorder
 (
  LO_ORDERKEY            UInt32,
  LO_LINENUMBER          UInt8,
@@ -19,4 +19,4 @@ CREATE TABLE lineorder
  LO_SHIPMODE            String
 )
 ENGINE = MergeTree PARTITION BY toYear(LO_ORDERDATE) ORDER BY (LO_ORDERDATE, LO_ORDERKEY)
-SETTINGS storage_policy = 'only_local'
+SETTINGS storage_policy = 'only_ebs'

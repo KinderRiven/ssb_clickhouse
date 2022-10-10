@@ -1,4 +1,4 @@
-CREATE TABLE t_customer ON cluster cluster_3shards                                                                                                  
+CREATE TABLE ebs_customer                                                                                                       
 (                                                                                                                                         
  C_CUSTKEY      	UInt32,                                                                                                                   
  C_NAME           	String,                                                                                                                   
@@ -8,6 +8,6 @@ CREATE TABLE t_customer ON cluster cluster_3shards
  C_REGION        	String,                                                                                                                   
  C_PHONE         	String,                                                                                                                   
  C_MKTSEGMENT    	String                                                                                                                    
-)                                                                                                                                     
+)                                                                                                                                  
 ENGINE = MergeTree ORDER BY (C_CUSTKEY)
-SETTINGS storage_policy = 'only_local'
+SETTINGS storage_policy = 'only_ebs'

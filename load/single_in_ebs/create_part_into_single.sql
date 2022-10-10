@@ -1,4 +1,4 @@
-CREATE TABLE part 
+CREATE TABLE ebs_part 
 (
  P_PARTKEY       UInt32,
  P_NAME          String,
@@ -11,4 +11,4 @@ CREATE TABLE part
  P_CONTAINER     String
 )
 ENGINE = MergeTree ORDER BY P_PARTKEY
-SETTINGS storage_policy = 'only_local'
+SETTINGS storage_policy = 'only_ebs'

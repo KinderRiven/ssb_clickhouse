@@ -4,7 +4,7 @@ CREATE TABLE s_customer
  C_NAME           	String,                                                                                                                   
  C_ADDRESS      	String,                                                                                                                   
  C_CITY             String,                                                                                                                   
- C_NATION       	String,                                                                                                                   
+ C_NATION       	String,                                                                                                                  
  C_REGION        	String,                                                                                                                   
  C_PHONE         	String,                                                                                                                   
  C_MKTSEGMENT    	String                                                                                                                    
