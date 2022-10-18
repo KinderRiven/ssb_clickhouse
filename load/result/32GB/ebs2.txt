@@ -1,0 +1,26 @@
+drop table customer/part/supplier/lineorder
+create table customer/part/supplier/lineorder
+load customer
+Mon Oct 10 13:17:47 UTC 2022
+
+real    0m1.809s
+user    0m1.992s
+sys     0m0.242s
+load part
+Mon Oct 10 13:17:49 UTC 2022
+
+real    0m1.038s
+user    0m0.978s
+sys     0m0.179s
+load supplier
+Mon Oct 10 13:17:50 UTC 2022
+
+real    0m0.272s
+user    0m0.138s
+sys     0m0.052s
+load lineorder
+Mon Oct 10 13:17:50 UTC 2022
+
+real    9m4.433s
+user    9m29.799s
+sys     0m36.039s

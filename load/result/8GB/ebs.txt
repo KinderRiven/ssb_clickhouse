@@ -1,0 +1,27 @@
+drop table customer/part/supplier/lineorder
+create table customer/part/supplier/lineorder
+load customer
+Mon Oct 10 14:29:11 UTC 2022
+
+real    0m1.817s
+user    0m1.957s
+sys     0m0.271s
+load part
+Mon Oct 10 14:29:13 UTC 2022
+
+real    0m1.042s
+user    0m0.999s
+sys     0m0.148s
+load supplier
+Mon Oct 10 14:29:14 UTC 2022
+
+real    0m0.259s
+user    0m0.141s
+sys     0m0.041s
+load lineorder
+Mon Oct 10 14:29:15 UTC 2022
+
+real    17m40.777s
+user    9m20.860s
+sys     0m35.307s
+root@ip-172-31-21
